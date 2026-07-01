@@ -1,7 +1,7 @@
 
 .dashboard-grid {
   display: grid;
-  grid-template-cols: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   margin-bottom: 24px;
 }
