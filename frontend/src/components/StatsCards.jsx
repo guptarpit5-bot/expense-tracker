@@ -2,12 +2,12 @@ import React from 'react';
 import { FiDollarSign, FiList, FiTrendingUp, FiClock } from 'react-icons/fi';
 
 const StatsCards = ({ expenses = [] }) => {
-  // Format to standard dollar format
+
   const formatAmount = (val) => {
     return '$' + val.toFixed(2);
   };
 
-  // Basic calculations
+ 
   const total = expenses.reduce((sum, item) => sum + item.amount, 0);
   const count = expenses.length;
 

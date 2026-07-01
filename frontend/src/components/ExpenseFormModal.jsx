@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import '../styles/ExpenseForm.css';
 
 const ExpenseFormModal = ({ isOpen, onClose, onSubmit, expenseToEdit = null }) => {
-  // Simple individual state variables (easy for beginners to explain)
+
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
   const [expenseDate, setExpenseDate] = useState('');
   const [description, setDescription] = useState('');
 
-  // Update form inputs when edit modal opens
+
   useEffect(() => {
     if (expenseToEdit) {
       setTitle(expenseToEdit.title || '');
@@ -18,7 +18,7 @@ const ExpenseFormModal = ({ isOpen, onClose, onSubmit, expenseToEdit = null }) =
       setExpenseDate(expenseToEdit.expenseDate ? expenseToEdit.expenseDate.substring(0, 10) : '');
       setDescription(expenseToEdit.description || '');
     } else {
-      // Clear inputs for new entry
+   
       setTitle('');
       setAmount('');
       setCategory('');
@@ -32,7 +32,7 @@ const ExpenseFormModal = ({ isOpen, onClose, onSubmit, expenseToEdit = null }) =
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic Validations check
+    
     if (!title || !amount || !category || !expenseDate) {
       alert('Please fill in all required fields.');
       return;
@@ -44,7 +44,6 @@ const ExpenseFormModal = ({ isOpen, onClose, onSubmit, expenseToEdit = null }) =
       return;
     }
 
-    // Submit payload
     onSubmit({
       title: title.trim(),
       amount: parsedAmount,
@@ -117,7 +116,7 @@ const ExpenseFormModal = ({ isOpen, onClose, onSubmit, expenseToEdit = null }) =
               </select>
             </div>
 
-            {/* Date */}
+        
             <div className="form-group">
               <label className="form-label">Expense Date *</label>
               <input
@@ -129,7 +128,6 @@ const ExpenseFormModal = ({ isOpen, onClose, onSubmit, expenseToEdit = null }) =
               />
             </div>
 
-            {/* Description */}
             <div className="form-group">
               <label className="form-label">Description (Optional)</label>
               <textarea

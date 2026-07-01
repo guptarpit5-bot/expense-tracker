@@ -19,7 +19,7 @@ const Sidebar = () => {
         <span className="logo-text">Expense App</span>
       </div>
 
-      {/* Navigation menu list using simple emojis */}
+      
       <nav className="sidebar-menu">
         <NavLink
           to="/dashboard"
@@ -42,8 +42,6 @@ const Sidebar = () => {
           <span>Logout</span>
         </button>
       </nav>
-
-      {/* Footer User Info */}
       <div className="sidebar-footer">
         <span style={{ marginRight: '8px' }}>👤</span>
         <span style={{ textTransform: 'capitalize' }}>{user.username || 'User'}</span>

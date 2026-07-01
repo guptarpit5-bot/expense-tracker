@@ -18,28 +18,25 @@ const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Filters State
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
 
-  // Modals state
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [expenseToEdit, setExpenseToEdit] = useState(null);
   const [expenseToDelete, setExpenseToDelete] = useState(null);
 
-  // Toast status alert state
+ 
   const [toast, setToast] = useState(null);
 
-  // Show status toast alert helper
   const showToast = (message, type = 'success') => {
     setToast({ message, type });
   };
 
-  // Fetch expenses from Backend
+
   const fetchExpenses = async () => {
     setLoading(true);
     try {
-      // Build query string params
+     
       const params = {};
       if (searchTerm) params.search = searchTerm;
       if (categoryFilter) params.category = categoryFilter;
@@ -55,24 +52,21 @@ const Dashboard = () => {
       setLoading(false);
     }
   };
-
-  // Reload when search or filter change
   useEffect(() => {
     fetchExpenses();
   }, [searchTerm, categoryFilter]);
 
-  // Create or Edit form submission
   const handleFormSubmit = async (formData) => {
     try {
       if (expenseToEdit) {
-        // Edit expense
+      
         const res = await axios.put(`${API_BASE_URL}/${expenseToEdit.id}`, formData);
         if (res.data?.success) {
           showToast('Expense updated successfully!');
           fetchExpenses();
         }
       } else {
-        // Add new expense
+     
         const res = await axios.post(API_BASE_URL, formData);
         if (res.data?.success) {
           showToast('Expense added successfully!');
@@ -86,7 +80,7 @@ const Dashboard = () => {
     }
   };
 
-  // Delete confirm handler
+
   const handleDeleteConfirm = async () => {
     if (!expenseToDelete) return;
     try {
@@ -104,10 +98,9 @@ const Dashboard = () => {
 
   return (
     <div className="flex bg-slate-50 min-h-screen">
-      {/* Sidebar navigation */}
+     
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Main content body */}
       <div className="flex-1 flex flex-col">
         <Navbar
           onAddClick={() => {
@@ -116,17 +109,17 @@ const Dashboard = () => {
           }}
         />
 
-        {/* Dashboard inner details */}
+       
         <div className="p-6 space-y-6 max-w-7xl w-full mx-auto">
           <div>
             <h2 className="text-xl font-bold text-slate-800">Expense Tracker Dashboard</h2>
             <p className="text-xs text-slate-500">Track and monitor your everyday spendings</p>
           </div>
 
-          {/* Cards Panel */}
+          
           <StatsCards expenses={expenses} />
 
-          {/* Table display */}
+         
           {activeTab === 'dashboard' || activeTab === 'expenses' ? (
             <div>
               {loading ? (
@@ -171,7 +164,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Add / Edit Form Modal */}
+    
       <ExpenseFormModal
         isOpen={isFormOpen}
         onClose={() => {
@@ -182,7 +175,6 @@ const Dashboard = () => {
         expenseToEdit={expenseToEdit}
       />
 
-      {/* Delete Confirmation Modal */}
       {expenseToDelete && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-slate-900/50" onClick={() => setExpenseToDelete(null)}></div>
@@ -219,7 +211,6 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* Toasts Alerts */}
       {toast && (
         <Toast
           message={toast.message}
