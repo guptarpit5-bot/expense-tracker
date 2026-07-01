@@ -10,7 +10,8 @@ import EmptyState from './EmptyState';
 import LoadingSpinner from './LoadingSpinner';
 import { FiAlertTriangle } from 'react-icons/fi';
 
-const API_BASE_URL = 'http://localhost:5000/api/expenses';
+const API = import.meta.env.VITE_API_URL;
+const API_BASE_URL = `http://${API}/api/expenses`;
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');

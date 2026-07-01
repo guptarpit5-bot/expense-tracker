@@ -4,6 +4,8 @@ import { FaRupeeSign } from 'react-icons/fa';
 import '../styles/Dashboard.css';
 import '../styles/App.css';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Dashboard = () => {
   const [stats, setStats] = useState({ total: 0, count: 0 });
   const [loading, setLoading] = useState(true);
@@ -16,7 +18,7 @@ const Dashboard = () => {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     
     
-    const response = await fetch('http://localhost:5000/api/expenses', {
+    const response = await fetch(`http://${API}/api/expenses`, {
       method: 'GET',
       headers: {
         'x-user-id': user.id,

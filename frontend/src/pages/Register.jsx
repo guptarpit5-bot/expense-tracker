@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Register = () => {
   
   const [username, setUsername] = useState('');
@@ -33,7 +35,7 @@ const Register = () => {
     }
 
     
-    const response = await fetch('http://localhost:5000/api/auth/register', {
+    const response = await fetch(`http://${API}/api/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
