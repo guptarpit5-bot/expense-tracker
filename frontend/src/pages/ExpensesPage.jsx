@@ -6,7 +6,7 @@ import '../styles/App.css';
 import '../styles/ExpenseForm.css';
 
 const API = import.meta.env.VITE_API_URL;
-const API_BASE_URL = `http://${API}/api/expenses`;
+const API_BASE_URL = `https://${API}/api/expenses`;
 
 const ExpensesPage = () => {
   const [expenses, setExpenses] = useState([]);

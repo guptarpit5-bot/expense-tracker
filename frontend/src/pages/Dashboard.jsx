@@ -18,7 +18,7 @@ const Dashboard = () => {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     
     
-    const response = await fetch(`http://${API}/api/expenses`, {
+    const response = await fetch(`https://${API}/api/expenses`, {
       method: 'GET',
       headers: {
         'x-user-id': user.id,
