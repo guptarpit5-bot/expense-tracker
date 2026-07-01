@@ -1,4 +1,4 @@
-/* Dashboard Page Styles */
+
 .dashboard-grid {
   display: grid;
   grid-template-cols: repeat(auto-fit, minmax(240px, 1fr));

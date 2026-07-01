@@ -34,7 +34,7 @@ export const register = async (req, res) => {
   const newUser = await prisma.user.create({
     data: {
       username: username.toLowerCase().trim(),
-      password: password, // Plain text
+      password: password, 
     },
   });
 
@@ -52,7 +52,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   const { username, password } = req.body;
 
-  // Basic Validations
+
   if (!username || !password) {
     return res.status(400).json({
       success: false,

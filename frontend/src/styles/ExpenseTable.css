@@ -1,4 +1,4 @@
-/* Expense Table Styles */
+
 .table-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
@@ -56,7 +56,6 @@
   background-color: #f8fafc;
 }
 
-/* Category Badge Pills */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -96,7 +95,6 @@
   color: #475569;
 }
 
-/* Table Actions */
 .action-buttons {
   display: flex;
   gap: 12px;
@@ -129,7 +127,7 @@
   text-decoration: underline;
 }
 
-/* Empty State */
+
 .empty-state {
   text-align: center;
   padding: 48px 24px;
